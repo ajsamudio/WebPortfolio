@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJ Samudio - Web Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="name fade-in">AJ Samudio</h1>
+            <p class="title slide-up">Web Developer</p>
+        </header>
+
+        <section class="profile">
+            <div class="profile-image-container">
+                <img src="images/pfp.jpg" alt="Profile Image" class="profile-image">
+            </div>
+            <div class="intro-text fade-in">
+                <h2>Hello</h2>
+                <p>I'm a web developer specializing in  Multimedia design, Programming, and Video editing.</p>
+            </div>
+        </section>
+
+        <section class="projects">
+            <h2 class="section-title slide-up">Skills</h2>
+            <div class="project-grid">
+                <div class="project-card" data-category="graphic">
+                    <div class="project-icon">
+                        <i class="fas fa-pen-nib"></i>
+                    </div>
+                    <h3>Graphic Design</h3>
+                    <div class="hover-content">
+                        <p>Creative visual solutions for modern businesses</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Design</h3>
+                    <div class="hover-content">
+                        <p>Responsive and modern web experiences</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="video">
+                    <div class="project-icon">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <h3>Video Editing</h3>
+                    <div class="hover-content">
+                        <p>Compelling video content that tells your story</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <h2 class="section-title slide-up">Contact Me</h2>
+            
+            <div class="contact-container">
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/your-profile" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://fiverr.com/your-profile" target="_blank" class="social-link">
+                        <i class="fa-light fa-face-awesome"></i>
+                        <span>Fiverr</span>
+                    </a>
+                </div>
+
+                <div class="contact-form">
+                    <button class="contact-btn">Send me a message</button>
+                </div>
+
+                <!-- Popup Form -->
+                <div class="form-popup" id="formPopup">
+                    <div class="form-popup-content">
+                        <button class="close-btn">&times;</button>
+                        <h3>Send me a message</h3>
+                        <form id="emailForm" onsubmit="return sendEmail(event)">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 AJ Samudio. All rights reserved.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Cookie Policy</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
