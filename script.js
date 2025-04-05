@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Animate profile image on load
     const profileImage = document.querySelector('.profile-image');
+    
     if (profileImage) {
         profileImage.style.opacity = '0';
         profileImage.style.transform = 'scale(0.8)';
@@ -166,4 +167,97 @@ document.addEventListener('DOMContentLoaded', () => {
         
         return false;
     }
+
+    // DOM Elements
+    const dotsContainer = document.createElement('div');
+    dotsContainer.className = 'dots-container';
+    document.body.appendChild(dotsContainer);
+
+    const profileContainer = document.querySelector('.profile-image-container');
+    let isHovering = false;
+
+    // Profile Image Distortion Effect
+    if (profileContainer && profileImage) {
+        profileContainer.addEventListener('mouseenter', () => {
+            isHovering = true;
+        });
+
+        profileContainer.addEventListener('mouseleave', () => {
+            isHovering = false;
+            profileImage.style.transform = 'scale(1) perspective(1000px) rotateX(0deg) rotateY(0deg)';
+            profileImage.style.filter = 'brightness(1) contrast(1) hue-rotate(0deg) blur(0px)';
+        });
+
+        profileContainer.addEventListener('mousemove', (e) => {
+            if (!isHovering) return;
+
+            const rect = profileContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            const dx = x - centerX;
+            const dy = y - centerY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const maxDistance = Math.sqrt(centerX * centerX + centerY * centerY);
+            const distortionIntensity = distance / maxDistance;
+
+            profileImage.style.transform = `
+                scale(1.05) 
+                perspective(1000px) 
+                rotateX(${rotateX}deg) 
+                rotateY(${rotateY}deg)
+            `;
+
+            const hueRotate = (distortionIntensity * 180) % 360;
+            const blur = distortionIntensity * 2;
+            profileImage.style.filter = `
+                brightness(1.2)
+                contrast(1.1)
+                hue-rotate(${hueRotate}deg)
+                blur(${blur}px)
+            `;
+        });
+    }
+
+    // Animated Dots
+    function createDot() {
+        const dot = document.createElement('div');
+        dot.className = 'dot';
+        
+        dot.style.left = `${Math.random() * window.innerWidth}px`;
+        dot.style.top = `${Math.random() * window.innerHeight}px`;
+        
+        dot.style.animation = 'dotFade 15s ease-in-out forwards';
+        
+        dotsContainer.appendChild(dot);
+        
+        setTimeout(() => {
+            dot.remove();
+        }, 15000);
+    }
+
+    function initDots() {
+        for(let i = 0; i < 15; i++) {
+            setTimeout(createDot, Math.random() * 3000);
+        }
+
+        setInterval(() => {
+            const dotCount = Math.floor(Math.random() * 5) + 8;
+            for(let i = 0; i < dotCount; i++) {
+                setTimeout(createDot, Math.random() * 3000);
+            }
+        }, 3000);
+    }
+
+    // Update dots container size on window resize
+    window.addEventListener('resize', () => {
+        dotsContainer.style.height = `${window.innerHeight}px`;
+    });
+
+    initDots();
 }); 
