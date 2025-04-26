@@ -145,6 +145,16 @@ body::before {
     cursor: pointer;
     transition: all 0.5s ease;
     perspective: 1000px;
+    animation: breathing 5s infinite alternate; /* Breathing animation */
+}
+
+@keyframes breathing {
+    0% {
+        transform: scale(1); /* Adjust the initial scale here */
+    }
+    100% {
+        transform: scale(1.05); /* Adjust the final scale here */
+    }
 }
 
 .profile-image-container::before {
@@ -266,11 +276,11 @@ body::before {
 }
 
 .project-card[data-category="graphic"] {
-    background: #800020;
+    background: #1e4b94;
 }
 
 .project-card[data-category="web"] {
-    background: #1e4b94;
+    background: #800020;
 }
 
 .project-card[data-category="video"] {
@@ -289,11 +299,11 @@ body::before {
 }
 
 .project-card[data-category="graphic"] .project-icon {
-    color: #e74c3c;
+    color: #3498db;
 }
 
 .project-card[data-category="web"] .project-icon {
-    color: #3498db;
+    color:  #e74c3c;
 }
 
 .project-card[data-category="video"] .project-icon {
@@ -672,4 +682,4 @@ body::before {
     pointer-events: none;
     z-index: 1;
     overflow: hidden;
-} 
+}
