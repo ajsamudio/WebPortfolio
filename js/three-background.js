@@ -57,7 +57,7 @@ function init() {
         positions[i3 + 1] = (Math.random() * 2 - 1) * 500;
         positions[i3 + 2] = (Math.random() * 2 - 1) * 500;
 
-        colors[i3] = 0.0; // R
+        colors[i3] = Math.random() * 0.5; // R
         colors[i3 + 1] = Math.random() * 0.5; // G (greenish)
         colors[i3 + 2] = 0.0; // B
     }

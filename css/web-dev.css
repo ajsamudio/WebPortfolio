@@ -60,6 +60,7 @@ a {
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     padding: 1rem;
+    perspective: 500px;
 }
 
 .grid-item {
@@ -67,10 +68,11 @@ a {
     border-radius: 15px;
     padding: 1.5rem; /* Slightly reduced padding */
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(5px); /* Glassmorphism effect */
     border: 1px solid rgba(205, 213, 219, 0.1); /* Subtle border */
     transition: transform 0.3s ease-in-out; /* Add transition for smooth effect */
+    transform: rotateX(10deg);
 }
 
 .grid-item:hover {
