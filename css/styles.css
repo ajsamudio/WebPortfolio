@@ -154,10 +154,11 @@ body {
     right: -5px;
     bottom: -5px;
     border-radius: 50%;
-    background: linear-gradient(45deg, aqua, #00ff88, aqua);
+    background: black;
     opacity: 0;
     transition: all 0.5s ease;
     z-index: -1;
+    animation: none;
 }
 
 .profile-image-container::after {
@@ -168,13 +169,7 @@ body {
     right: -10px;
     bottom: -10px;
     border-radius: 50%;
-    border: 3px solid transparent;
-    background: linear-gradient(45deg, #00ff88, aqua, #00ff88) border-box;
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) padding-box, 
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
+    border: 3px solid aqua;
     opacity: 0;
     transition: all 0.5s ease;
 }
@@ -191,7 +186,6 @@ body {
 }
 
 .profile-image-container:hover {
-    transform: scale(1.05);
 }
 
 .profile-image-container:hover::before {
@@ -205,9 +199,6 @@ body {
 }
 
 .profile-image-container:hover .profile-image {
-    border-color: aqua;
-    filter: brightness(1.2) contrast(1.1);
-    animation: distort 4s infinite linear;
 }
 
 .intro-text {
