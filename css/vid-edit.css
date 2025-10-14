@@ -78,6 +78,12 @@ a {
     border-radius: 10px;
 }
 
+.grid-item video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Apply border-radius for consistency */
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 1.5rem; /* Adjust container padding for smaller screens */

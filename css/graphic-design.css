@@ -57,26 +57,29 @@ a {
     padding: 1rem;
 }
 
-.grid-item {
-    background: rgba(205, 213, 219, 0.05); /* Semi-transparent Very Light Blue/Gray */
-    border-radius: 15px;
-    padding: 1.5rem; /* Slightly reduced padding */
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(5px); /* Glassmorphism effect */
-    border: 1px solid rgba(205, 213, 219, 0.1); /* Subtle border */
-    transition: transform 0.3s ease-in-out; /* Add transition for smooth effect */
-}
+    .grid-item {
+        background: rgba(205, 213, 219, 0.05); /* Semi-transparent Very Light Blue/Gray */
+        border-radius: 15px;
+        padding: 1.5rem; /* Slightly reduced padding */
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(5px); /* Glassmorphism effect */
+        border: 1px solid rgba(205, 213, 219, 0.1); /* Subtle border */
+        transition: transform 0.3s ease-in-out; /* Add transition for smooth effect */
+        display: flex; /* Use flexbox for grid item content */
+        flex-direction: column; /* Stack content vertically */
+        align-items: center; /* Center content horizontally */
+    }
 
 .grid-item:hover {
     transform: scale(1.03); /* Grow effect on hover */
 }
 
-.grid-item img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
+    .grid-item img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px; /* Keep for non-carousel images */
+    }
 
 @media (max-width: 768px) {
     .container {
@@ -135,13 +138,63 @@ a {
 }
 
 /* Add a container for dots */
-.dots-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    pointer-events: none;
-    z-index: 1;
-    overflow: hidden;
-}
+    .dots-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+    /* Carousel styles */
+    .carousel {
+        position: relative;
+        width: 100%;
+        max-width: 800px; /* Set a max-width for the carousel */
+        height: 400px; /* Set a fixed height for the carousel */
+        margin: 0 auto; /* Center the carousel */
+        overflow: hidden;
+        border-radius: 10px;
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    }
+
+    .carousel-images {
+        display: flex;
+        width: 100%; /* Ensure the container takes full width of its parent */
+        height: 100%; /* Ensure the container takes full height of its parent */
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-images img {
+        min-width: 100%;
+        height: 100%; /* Make images take full height of the carousel-images container */
+        object-fit: cover; /* Cover the area, cropping if necessary */
+        display: block;
+        border-radius: 0; /* Override grid-item img border-radius */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    }
+
+    .carousel-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 1.5rem;
+        border-radius: 5px;
+        z-index: 10;
+    }
+
+    .carousel-button.prev {
+        left: 10px;
+    }
+
+    .carousel-button.next {
+        right: 10px;
+    }
