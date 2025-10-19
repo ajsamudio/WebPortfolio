@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Developer</title>
+    <link rel="stylesheet" href="css/vid-edit.css">
+    <style>
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #f44336;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .back-button {
+                position: static;
+                margin-top: 20px;
+                margin-left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-button">Back to Home</a>
+        <h1>Video edits</h1>
+        <p>Art made by me :)</p>
+        <div class="grid-container">
+            <div class="grid-item">
+                <h2>Fortnite Montage</h2>
+                <p>A gaming montage created for my client</p>
+                 <video controls="controls" name="Fortnite montage" poster="images/Fnite_thumbnail.png">
+                <source src="images/Fnite.mp4">
+              </video>
+            </div>
+            <div class="grid-item">
+                <h2>Dodger Edit</h2>
+                <p>A Dodger world series edit</p>
+                <video controls="controls" name="Dodger win" poster="images/DodgerWin_thumbnail.png">
+                 <source src="images/DodgerWin.MOV">
+                </video>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

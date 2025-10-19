@@ -21,30 +21,19 @@ body {
     font-family: 'Poppins', sans-serif;
     color: #FAF9F6;
     line-height: 1.6;
-    background: linear-gradient(
-        45deg,
-        #1a1a1a,
-        #1f1f1f,
-        #1a1a1a,
-        #222222,
-        #1a1a1a
-    );
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
     min-height: 100vh;
     position: relative;
+    overflow-x: hidden; /* Prevent horizontal scroll on mobile */
 }
 
-body::before {
-    content: '';
+#three-background {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.03), transparent 70%);
-    pointer-events: none;
-    z-index: 1;
+    z-index: -1; /* Ensure it's behind other content */
+    display: block; /* Ensure canvas is rendered */
 }
 
 .container {
@@ -165,10 +154,11 @@ body::before {
     right: -5px;
     bottom: -5px;
     border-radius: 50%;
-    background: linear-gradient(45deg, aqua, #00ff88, aqua);
+    background: black;
     opacity: 0;
     transition: all 0.5s ease;
     z-index: -1;
+    animation: none;
 }
 
 .profile-image-container::after {
@@ -179,13 +169,7 @@ body::before {
     right: -10px;
     bottom: -10px;
     border-radius: 50%;
-    border: 3px solid transparent;
-    background: linear-gradient(45deg, #00ff88, aqua, #00ff88) border-box;
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) padding-box, 
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
+    border: 3px solid aqua;
     opacity: 0;
     transition: all 0.5s ease;
 }
@@ -202,7 +186,6 @@ body::before {
 }
 
 .profile-image-container:hover {
-    transform: scale(1.05);
 }
 
 .profile-image-container:hover::before {
@@ -216,9 +199,6 @@ body::before {
 }
 
 .profile-image-container:hover .profile-image {
-    border-color: aqua;
-    filter: brightness(1.2) contrast(1.1);
-    animation: distort 4s infinite linear;
 }
 
 .intro-text {
@@ -238,6 +218,11 @@ body::before {
 /* Projects Section */
 .projects {
     padding: 4rem 0;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
 }
 
 .section-title {
@@ -406,6 +391,10 @@ body::before {
 
 .social-link[href*="fiverr"] i {
     color: #1dbf73;
+}
+
+.social-link[href*="drive.google.com"] i {
+    color: #4285F4; /* Google Drive blue */
 }
 
 .contact-form {
