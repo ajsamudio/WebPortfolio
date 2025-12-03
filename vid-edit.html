@@ -1,53 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Developer</title>
+    <title>Video Editing - AJ Samudio</title>
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/vid-edit.css">
-    <style>
-        .back-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background-color: #f44336;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        @media (max-width: 768px) {
-            .back-button {
-                position: static;
-                margin-top: 20px;
-                margin-left: 20px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
-<body>
+
+<body class="no-tilt">
     <div class="container">
-        <a href="index.html" class="back-button">Back to Home</a>
-        <h1>Video edits</h1>
-        <p>Art made by me :)</p>
-        <div class="grid-container">
-            <div class="grid-item">
-                <h2>Fortnite Montage</h2>
-                <p>A gaming montage created for my client</p>
-                 <video controls="controls" name="Fortnite montage" poster="images/Fnite_thumbnail.png">
-                <source src="images/Fnite.mp4">
-              </video>
+        <header class="header">
+            <a href="index.html" class="back-button"
+                style="position: absolute; top: 20px; left: 20px; text-decoration: none; color: var(--primary-color); font-weight: 600;"><i
+                    class="fas fa-arrow-left"></i> Back to Home</a>
+            <h1 class="name fade-in">Video Edits</h1>
+            <p class="title slide-up">Art made by me :)</p>
+        </header>
+
+        <section class="projects">
+            <div class="grid-container">
+                <div class="grid-item project-card">
+                    <h2>Fortnite Montage</h2>
+                    <p>A gaming montage created for my client</p>
+                    <video controls="controls" name="Fortnite montage" poster="images/Fnite_thumbnail.png"
+                        style="width: 100%; border-radius: 10px; margin-top: 1rem;">
+                        <source src="images/Fnite.mp4">
+                    </video>
+                </div>
+                <div class="grid-item project-card">
+                    <h2>Dodger Edit</h2>
+                    <p>A Dodger world series edit</p>
+                    <video controls="controls" name="Dodger win" poster="images/DodgerWin_thumbnail.png"
+                        style="width: 100%; border-radius: 10px; margin-top: 1rem;">
+                        <source src="images/DodgerWin.MOV">
+                    </video>
+                </div>
             </div>
-            <div class="grid-item">
-                <h2>Dodger Edit</h2>
-                <p>A Dodger world series edit</p>
-                <video controls="controls" name="Dodger win" poster="images/DodgerWin_thumbnail.png">
-                 <source src="images/DodgerWin.MOV">
-                </video>
-            </div>
-        </div>
+        </section>
     </div>
-    
+
+    <script src="js/script.js"></script>
 </body>
+
 </html>

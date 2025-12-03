@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AJ Samudio - Web Developer</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <canvas id="three-background"></canvas>
     <div class="container">
@@ -22,89 +25,177 @@
             </div>
             <div class="intro-text fade-in">
                 <h2>Hello World</h2>
-                <p style="font-size: 1.8rem;">I'm a web developer specializing in  Multimedia design, Programming and Video editing.</p>
+                <p>I'm a web developer specializing in Multimedia design, Programming and Video editing.</p>
             </div>
         </section>
 
-        <section class="projects">
+        <section class="projects" id="projects">
+            <h2 class="section-title slide-up">Featured Projects</h2>
+
+            <div class="filter-buttons fade-in">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+                <button class="filter-btn" data-filter="video">Video</button>
+            </div>
+
             <div class="project-grid">
-
-                <a href="web-dev.html">
-                    <div class="project-card" data-category="web">
-                        <div class="project-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3>Web Design</h3>
-                        <div class="hover-content">
-                            <p>Responsive and modern web experiences</p>
-                        </div>
+                <!-- Web Projects -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="images/Primovera.PNG" alt="Primovera Web">
                     </div>
-                </a>
-
-                <a href="graphic-design.html">
-                    <div class="project-card" data-category="graphic">
-                        <div class="project-icon">
-                            <i class="fas fa-pen-nib"></i>
-                        </div>
-                        <h3>Graphic Design</h3>
-                        <div class="hover-content">
-                            <p>Creative visual solutions for modern businesses</p>
-                        </div>
+                    <div class="project-info">
+                        <h3>Primovera</h3>
+                        <p>Expert construction and property management services.</p>
+                        <a href="https://primovera.net/" target="_blank" class="project-link">View Project</a>
                     </div>
-                </a>    
+                </div>
 
-                <a href="vid-edit.html">
-                    <div class="project-card" data-category="video">
-                        <div class="project-icon">
-                            <i class="fas fa-play"></i>
-                        </div>
-                        <h3>Video Editing</h3>
-                        <div class="hover-content">
-                            <p>Compelling video content that tells your story</p>
-                        </div>
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="images/LashDesk.PNG" alt="Lash Web">
                     </div>
-                </a>
+                    <div class="project-info">
+                        <h3>DragonflyyStudio</h3>
+                        <p>A dedicated eyelash studio offering expert lash extensions.</p>
+                        <a href="https://dragonflyybar.com/" target="_blank" class="project-link">View Project</a>
+                    </div>
+                </div>
 
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="images/bourbclubs.PNG" alt="Breakfast Club Web">
+                    </div>
+                    <div class="project-info">
+                        <h3>Breakfast Club</h3>
+                        <p>A classic breakfast diner serving up hearty morning favorites.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="images/NeuroSpark.PNG" alt="NeuroSpark">
+                    </div>
+                    <div class="project-info">
+                        <h3>NeuroSpark</h3>
+                        <p>A timer and task app to keep you productive.</p>
+                        <a href="https://ajsamudio.github.io/playground/NeuroSparkProductivity.html" target="_blank"
+                            class="project-link">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="images/blackJack.PNG" alt="BlackJack">
+                    </div>
+                    <div class="project-info">
+                        <h3>BlackJack</h3>
+                        <p>A web-based game for blackjack.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="images/diceRoll.PNG" alt="DiceRoll">
+                    </div>
+                    <div class="project-info">
+                        <h3>DiceRoll</h3>
+                        <p>A web-based game where players can virtually roll dice.</p>
+                    </div>
+                </div>
+
+                <!-- Design Projects -->
+                <div class="project-card" data-category="design">
+                    <div class="project-image">
+                        <img src="images/pos1upd.png" alt="Community Design">
+                    </div>
+                    <div class="project-info">
+                        <h3>Community Design & Service</h3>
+                        <p>A poster I created for my school.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="design">
+                    <div class="project-image">
+                        <img src="images/Capture3.png" alt="Environment Modeling">
+                    </div>
+                    <div class="project-info">
+                        <h3>Environment Modeling</h3>
+                        <p>A space environment I designed in Maya.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="design">
+                    <div class="project-image">
+                        <img src="images/post2upd.png" alt="Community Design 2">
+                    </div>
+                    <div class="project-info">
+                        <h3>Community Design & Service pt 2</h3>
+                        <p>Second poster I created for my school.</p>
+                    </div>
+                </div>
+
+                <!-- Video Projects -->
+                <div class="project-card" data-category="video">
+                    <div class="project-media">
+                        <video controls poster="images/Fnite_thumbnail.png" style="width: 100%; border-radius: 10px;">
+                            <source src="images/Fnite.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="project-info">
+                        <h3>Fortnite Montage</h3>
+                        <p>A gaming montage created for my client.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="video">
+                    <div class="project-media">
+                        <video controls poster="images/DodgerWin_thumbnail.png"
+                            style="width: 100%; border-radius: 10px;">
+                            <source src="images/DodgerWin.MOV" type="video/quicktime">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="project-info">
+                        <h3>Dodger Edit</h3>
+                        <p>A Dodger world series edit.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section class="contact" id="contact">
             <h2 class="section-title slide-up">Contact Me</h2>
-            
+
             <div class="contact-container">
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/antonio-samudio/" target="_blank" class="social-link">
                         <i class="fab fa-linkedin"></i>
                         <span>LinkedIn</span>
                     </a>
-                    <a href="https://drive.google.com/file/d/1lD0m3fH9jQPWc1DKjSWG-h-kliRb6iSR/view?usp=drive_link" target="_blank" class="social-link">
+                    <a href="https://drive.google.com/file/d/1lD0m3fH9jQPWc1DKjSWG-h-kliRb6iSR/view?usp=drive_link"
+                        target="_blank" class="social-link">
                         <i class="fas fa-file-alt"></i>
                         <span>Resume</span>
                     </a>
                 </div>
 
-                <div class="contact-form">
-                    <button class="contact-btn">Send me a message</button>
-                </div>
-
-                <!-- Popup Form -->
-                <div class="form-popup" id="formPopup">
-                    <div class="form-popup-content">
-                        <button class="close-btn">&times;</button>
-                        <h3>Send me a message</h3>
-                        <form id="emailForm" onsubmit="return sendEmail(event)">
-                            <div class="form-group">
-                                <input type="text" id="name" name="name" placeholder="Your Name" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="email" name="email" placeholder="Your Email" required>
-                            </div>
-                            <div class="form-group">
-                                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-                            </div>
-                            <button type="submit" class="submit-btn">Send Message</button>
-                        </form>
-                    </div>
+                <div class="contact-form-inline">
+                    <h3>Send me a message</h3>
+                    <form id="emailForm" onsubmit="return sendEmail(event)">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -117,15 +208,14 @@
                 <div class="footer-links">
                     <a href="#" class="footer-link">Privacy Policy</a>
                     <a href="#" class="footer-link">Terms of Service</a>
-                    <a href="#" class="footer-link">Games or something :P</a>
                     <a href="#" class="footer-link">Cookie Policy</a>
                 </div>
             </div>
         </footer>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.150.1/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.150.1/three.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/three-background.js"></script>
 </body>
+
 </html>
