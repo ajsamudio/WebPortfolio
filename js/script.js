@@ -61,36 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     }
 
-    // Add parallax effect to project cards
-    document.addEventListener('mousemove', (e) => {
-        if (document.body.classList.contains('no-tilt')) return;
-
-        const cards = document.querySelectorAll('.project-card');
-        const mouseX = e.clientX;
-        const mouseY = e.clientY;
-
-        cards.forEach(card => {
-            const rect = card.getBoundingClientRect();
-            const cardX = rect.left + rect.width / 2;
-            const cardY = rect.top + rect.height / 2;
-
-            // Reduced sensitivity (80 instead of 30)
-            const angleX = (mouseY - cardY) / 80;
-            const angleY = (mouseX - cardX) / -80;
-
-            card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
-        });
-    });
-
-    // Reset card transform on mouse leave
-    document.addEventListener('mouseleave', () => {
-        if (document.body.classList.contains('no-tilt')) return;
-
-        const cards = document.querySelectorAll('.project-card');
-        cards.forEach(card => {
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-        });
-    });
+    // Parallax effect removed per user request
 
     // Add typing effect to the introduction text
     const introText = document.querySelector('.intro-text p');
