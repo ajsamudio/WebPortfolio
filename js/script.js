@@ -2,39 +2,36 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Animate elements when they come into view
     const observerOptions = {
-        threshold: 0.1
+        threshold: 0.1,
+        rootMargin: "0px"
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                const delay = entry.target.dataset.delay || '0s';
+
+                if (entry.target.classList.contains('slide-up')) {
+                    entry.target.style.animation = `slideUp 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards ${delay}`;
+                } else if (entry.target.classList.contains('fade-in') || entry.target.classList.contains('project-card')) {
+                    entry.target.style.animation = `fadeIn 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards ${delay}`;
+                }
+
+                // entry.target.style.opacity = '1'; /* Removed to let animation handle visibility */
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Observe all project cards
-    document.querySelectorAll('.project-card').forEach(card => {
-        observer.observe(card);
-
-        // Add hover effect for project cards
-        card.addEventListener('mouseenter', (e) => {
-            const icon = e.currentTarget.querySelector('.project-icon i');
-            if (icon) {
-                icon.style.transform = 'scale(1.2) rotate(5deg)';
-            }
-        });
-
-        card.addEventListener('mouseleave', (e) => {
-            const icon = e.currentTarget.querySelector('.project-icon i');
-            if (icon) {
-                icon.style.transform = 'scale(1) rotate(0deg)';
-            }
-        });
+    // Observe elements with animation classes
+    document.querySelectorAll('.fade-in, .slide-up, .project-card').forEach(el => {
+        el.style.opacity = '0'; // Ensure they are hidden initially
+        observer.observe(el);
     });
 
-    // Add smooth scroll for better user experience
+    // Three.js background is handled by js/three-background.js via <script> tag
+
+    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -47,79 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Animate profile image on load
-    const profileImage = document.querySelector('.profile-image');
-
-    if (profileImage) {
-        profileImage.style.opacity = '0';
-        profileImage.style.transform = 'scale(0.8)';
-
-        setTimeout(() => {
-            profileImage.style.transition = 'all 0.8s ease';
-            profileImage.style.opacity = '1';
-            profileImage.style.transform = 'scale(1)';
-        }, 300);
-    }
-
-    // Parallax effect removed per user request
-
-    // Add typing effect to the introduction text
-    const introText = document.querySelector('.intro-text p');
-    if (introText) {
-        const text = introText.textContent;
-        introText.textContent = '';
-        let i = 0;
-
-        function typeWriter() {
-            if (i < text.length) {
-                introText.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 45);
-            }
-        }
-
-        // Start typing effect when the element is in view
-        const introObserver = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                typeWriter();
-                introObserver.unobserve(introText);
-            }
-        });
-
-        introObserver.observe(introText);
-    }
-
-    // Email form handling
-    window.sendEmail = function (event) {
-        event.preventDefault();
-
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-
-        // Create mailto link
-        const mailtoLink = `mailto:your-email@example.com?subject=Portfolio Contact from ${name}&body=${encodeURIComponent(
-            `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-        )}`;
-
-        // Open default email client
-        window.location.href = mailtoLink;
-
-        // Clear form
-        document.getElementById('emailForm').reset();
-
-        return false;
-    };
-
-    // DOM Elements
-    const dotsContainer = document.createElement('div');
-    dotsContainer.className = 'dots-container';
-    document.body.appendChild(dotsContainer);
-
+    // Profile Image 3D Tilt Effect
     const profileContainer = document.querySelector('.profile-image-container');
+    const profileImage = document.querySelector('.profile-image');
     let isHovering = false;
 
-    // Profile Image Distortion Effect
     if (profileContainer && profileImage) {
         profileContainer.addEventListener('mouseenter', () => {
             isHovering = true;
@@ -127,8 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         profileContainer.addEventListener('mouseleave', () => {
             isHovering = false;
-            profileImage.style.transform = 'scale(1) perspective(1000px) rotateX(0deg) rotateY(0deg)';
-            profileImage.style.filter = 'brightness(1) contrast(1) hue-rotate(0deg) blur(0px)';
+            profileImage.style.transform = 'scale(1)';
+            profileContainer.style.transform = 'scale(1)';
         });
 
         profileContainer.addEventListener('mousemove', (e) => {
@@ -138,71 +67,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
 
+            // Calculate rotation
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            const rotateX = (y - centerY) / 10;
-            const rotateY = (centerX - x) / 10;
 
-            const dx = x - centerX;
-            const dy = y - centerY;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            const maxDistance = Math.sqrt(centerX * centerX + centerY * centerY);
-            const distortionIntensity = distance / maxDistance;
+            // Limit rotation to avoid too much distortion
+            const rotateX = ((y - centerY) / centerY) * -10; // Max 10 deg
+            const rotateY = ((x - centerX) / centerX) * 10;
 
-            profileImage.style.transform = `
-                scale(1.05) 
-                perspective(1000px) 
-                rotateX(${rotateX}deg) 
-                rotateY(${rotateY}deg)
-            `;
-
-            const hueRotate = (distortionIntensity * 180) % 360;
-            const blur = distortionIntensity * 2;
-            profileImage.style.filter = `
-                brightness(1.2)
-                contrast(1.1)
-                hue-rotate(${hueRotate}deg)
-                blur(${blur}px)
-            `;
+            profileContainer.style.transform = `scale(1.05) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         });
     }
-
-    // Animated Dots
-    function createDot() {
-        const dot = document.createElement('div');
-        dot.className = 'dot';
-
-        dot.style.left = `${Math.random() * window.innerWidth}px`;
-        dot.style.top = `${Math.random() * window.innerHeight}px`;
-
-        dot.style.animation = 'dotFade 15s ease-in-out forwards';
-
-        dotsContainer.appendChild(dot);
-
-        setTimeout(() => {
-            dot.remove();
-        }, 15000);
-    }
-
-    function initDots() {
-        for (let i = 0; i < 15; i++) {
-            setTimeout(createDot, Math.random() * 3000);
-        }
-
-        setInterval(() => {
-            const dotCount = Math.floor(Math.random() * 5) + 8;
-            for (let i = 0; i < dotCount; i++) {
-                setTimeout(createDot, Math.random() * 3000);
-            }
-        }, 3000);
-    }
-
-    // Update dots container size on window resize
-    window.addEventListener('resize', () => {
-        dotsContainer.style.height = `${window.innerHeight}px`;
-    });
-
-    initDots();
 
     // Project Filtering
     const filterBtns = document.querySelectorAll('.filter-btn');
@@ -218,9 +93,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const filter = btn.getAttribute('data-filter');
 
             projectCards.forEach(card => {
-                if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                const category = card.getAttribute('data-category');
+
+                if (filter === 'all' || category === filter) {
                     card.style.display = 'flex';
-                    // Re-trigger animation if needed
+                    // Add a small delay for staggered animation could be nice, but simple fade is safer
+                    card.style.opacity = '0';
                     card.style.animation = 'none';
                     card.offsetHeight; /* trigger reflow */
                     card.style.animation = 'fadeIn 0.5s ease forwards';
@@ -230,4 +108,19 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    // Email form handling
+    window.sendEmail = function (event) {
+        event.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        const mailtoLink = `mailto:your-email@example.com?subject=Portfolio Contact from ${name}&body=${encodeURIComponent(
+            `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+        )}`;
+        window.location.href = mailtoLink;
+        document.getElementById('emailForm').reset();
+        return false;
+    };
 });
