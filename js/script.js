@@ -6,26 +6,30 @@ document.addEventListener('DOMContentLoaded', () => {
         rootMargin: "0px"
     };
 
+    // Generic observer (will observe multiple classes)
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const delay = entry.target.dataset.delay || '0s';
-
-                if (entry.target.classList.contains('slide-up')) {
-                    entry.target.style.animation = `slideUp 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards ${delay}`;
-                } else if (entry.target.classList.contains('fade-in') || entry.target.classList.contains('project-card')) {
-                    entry.target.style.animation = `fadeIn 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards ${delay}`;
-                }
-
-                // entry.target.style.opacity = '1'; /* Removed to let animation handle visibility */
+                entry.target.classList.add('visible');
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Observe elements with animation classes
-    document.querySelectorAll('.fade-in, .slide-up, .project-card').forEach(el => {
-        el.style.opacity = '0'; // Ensure they are hidden initially
+    // Add click-to-play for video projects
+    document.querySelectorAll('.js-video').forEach(video => {
+        video.addEventListener('click', function () {
+            if (this.paused) {
+                this.play();
+            } else {
+                this.pause();
+            }
+        });
+    });
+
+    // Observe all elements with animation classes
+    const animatedElements = document.querySelectorAll('.project-card, .fade-in, .slide-up, .reveal');
+    animatedElements.forEach(el => {
         observer.observe(el);
     });
 
@@ -109,18 +113,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Email form handling
-    window.sendEmail = function (event) {
-        event.preventDefault();
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-
-        const mailtoLink = `mailto:your-email@example.com?subject=Portfolio Contact from ${name}&body=${encodeURIComponent(
-            `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-        )}`;
-        window.location.href = mailtoLink;
-        document.getElementById('emailForm').reset();
-        return false;
-    };
+    // Form handling moved to FormSubmit.co service in HTML
 });
