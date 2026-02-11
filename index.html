@@ -23,9 +23,8 @@
             <p class="title slide-up" data-delay="0.4s">Web Developer & Multimedia Designer</p>
 
             <div class="intro-text slide-up" data-delay="0.6s">
-                <p>I create immersive digital experiences through code, design, and motion.
-                    <br></bt>Let's build something extraordinary.
-                </p>
+                <p>I am a creative developer dedicated to crafting immersive digital experiences through innovative
+                    multimedia design, robust programming, and professional video production.</p>
             </div>
 
             <div class="hero-buttons slide-up" data-delay="0.8s">
@@ -153,30 +152,31 @@
                 </div>
 
                 <!-- Video Projects -->
-                <div class="project-card" data-category="video">
+                <div class="project-card reveal" data-category="video">
                     <div class="project-media">
-                        <video controls poster="images/Fnite_thumbnail.png" style="width: 100%; border-radius: 10px;">
+                        <video controls poster="images/Fvideo.png" style="width: 100%; border-radius: 10px;"
+                            class="js-video">
                             <source src="images/Fnite.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
                     <div class="project-info">
-                        <h3>Gaming Montage</h3>
-                        <p>High-energy editing syncing gameplay with music beats.</p>
+                        <h3>Fortnite Montage</h3>
+                        <p>A gaming montage created for my client.</p>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="video">
+                <div class="project-card reveal" data-category="video">
                     <div class="project-media">
-                        <video controls poster="images/DodgerWin_thumbnail.png"
-                            style="width: 100%; border-radius: 10px;">
+                        <video controls poster="images/Dvideo.png" style="width: 100%; border-radius: 10px;"
+                            class="js-video">
                             <source src="images/DodgerWin.MOV" type="video/quicktime">
                             Your browser does not support the video tag.
                         </video>
                     </div>
                     <div class="project-info">
-                        <h3>Dodgers World Series</h3>
-                        <p>Cinematic highlight reel celebrating the championship win.</p>
+                        <h3>Dodger Edit</h3>
+                        <p>A Dodger world series edit.</p>
                     </div>
                 </div>
             </div>
@@ -198,9 +198,12 @@
                     </a>
                 </div>
 
-                <div class="contact-form-inline">
+                <div class="contact-form-inline reveal">
                     <h3>Send me a message</h3>
-                    <form id="emailForm" onsubmit="return sendEmail(event)">
+                    <form action="https://formsubmit.co/antsamudio99@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="New Portfolio Message!">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
                         <div class="form-group">
                             <input type="text" id="name" name="name" placeholder="Your Name" required>
                         </div>
@@ -208,7 +211,7 @@
                             <input type="email" id="email" name="email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" placeholder="How can I help you?" required></textarea>
+                            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
                         </div>
                         <button type="submit" class="submit-btn">Send Message</button>
                     </form>
@@ -216,7 +219,7 @@
             </div>
         </section>
 
-        <footer class="footer">
+        <footer class="footer reveal">
             <div class="footer-content">
                 <div class="footer-text">
                     <p>&copy; 2026 AJ Samudio. All rights reserved.</p>
