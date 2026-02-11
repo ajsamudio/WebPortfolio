@@ -113,5 +113,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Typewriter effect
+    const typewriterElement = document.getElementById('typewriter');
+    const textToType = "Creative developer dedicated to crafting immersive digital experiences through innovative multimedia design, robust programming, and professional video production.";
+    let index = 0;
+
+    function typeWriter() {
+        if (index < textToType.length) {
+            typewriterElement.innerHTML += textToType.charAt(index);
+            index++;
+            setTimeout(typeWriter, 30);
+        }
+    }
+
+    if (typewriterElement) {
+        // Trigger typewriter after a short delay
+        setTimeout(typeWriter, 1000);
+    }
+
     // Form handling moved to FormSubmit.co service in HTML
 });
