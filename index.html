@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AJ Samudio - Web Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -17,19 +20,30 @@
 
         <header class="header">
             <div class="profile-image-container fade-in" data-delay="0s">
-                <img src="images/pfp.png" alt="AJ Samudio" class="profile-image">
+                <img src="images/pfp.png" alt="AJ Samudio" class="profile-image" fetchpriority="high">
             </div>
             <h1 class="name fade-in" data-delay="0.2s">AJ Samudio</h1>
-            <p class="title slide-up" data-delay="0.4s">Web Developer & Multimedia Designer</p>
+            <p class="title slide-up" data-delay="0.4s">Full-Stack Developer & Creative Technologist</p>
 
             <div class="intro-text slide-up" data-delay="0.6s">
-                <p>I create immersive digital experiences through code, design, and motion.
-                    <br></bt>Let's build something extraordinary.
-                </p>
+                <p id="typewriter"></p>
             </div>
 
-            <div class="hero-buttons slide-up" data-delay="0.8s">
+            <div class="tech-stack slide-up" data-delay="0.8s">
+                <span class="tech-pill">Claude AI</span>
+                <span class="tech-pill">Antigravity IDE</span>
+                <span class="tech-pill">React</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">HTML</span>
+                <span class="tech-pill">CSS</span>
+                <span class="tech-pill">Vercel</span>
+                <span class="tech-pill">Supabase</span>
+                <span class="tech-pill">Maya</span>
+                <span class="tech-pill">Adobe Suite</span>
+            </div>
 
+            <div class="hero-buttons slide-up" data-delay="1s">
                 <a href="#contact" class="btn btn-secondary">Get in Touch</a>
             </div>
         </header>
@@ -46,86 +60,87 @@
 
             <div class="project-grid">
                 <!-- Web Projects -->
-                <div class="project-card" data-category="web">
+                <div class="project-card reveal" data-category="web">
                     <div class="project-image">
-                        <img src="images/Primovera.PNG" alt="Primovera Web">
+                        <img src="images/Primovera.PNG" alt="Primovera Web" loading="lazy">
                     </div>
                     <div class="project-info">
                         <h3>Primovera</h3>
-                        <p>A full-service construction and property management platform built for scale.</p>
+                        <p>End-to-end full-stack development for a Philippine construction and property management firm. Now live, with the brand featured on physical signage in the Philippines.</p>
                         <a href="https://primovera.net/" target="_blank" class="project-link">View Project</a>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="web">
+                <div class="project-card reveal" data-category="web">
                     <div class="project-image">
-                        <img src="images/LashDesk.PNG" alt="Lash Web">
+                        <img src="images/LashDesk.PNG" alt="Lash Web" loading="lazy">
                     </div>
                     <div class="project-info">
                         <h3>Dragonflyy Studio</h3>
-                        <p>Elegant booking and showcase platform for a boutique beauty studio.</p>
+                        <p>Full-stack build for a boutique lash studio in Orange County, CA. The platform actively drives client bookings and serves as the studio's primary digital presence.</p>
                         <a href="https://dragonflyybar.com/" target="_blank" class="project-link">View Project</a>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="web">
+                <div class="project-card reveal" data-category="web">
                     <div class="project-image">
-                        <img src="images/SintaByMarie.jpg" alt="SintaByMarie">
+                        <img src="images/SintaByMarie.png" alt="SintaByMarie" loading="lazy">
                     </div>
                     <div class="project-info">
-                        <h3>Sinta By Marie</h3>
-                        <p>E-commerce showcase for handcrafted artisanal jewelry.</p>
-                        <a href="https://ajsamudio.github.io/SintabyMarie/" target="_blank" class="project-link">View
-                            Project</a>
+                        <h3>SintaByMarie</h3>
+                        <p>Full-stack e-commerce and showcase platform for a handcrafted jewelry brand, built with a focus on elegant UX and conversion-driven design.</p>
+                        <a href="http://sintabymariejewelry.com/" target="_blank" class="project-link">View Project</a>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="web">
+                <div class="project-card reveal" data-category="web">
                     <div class="project-image">
-                        <img src="images/bourbclubs.PNG" alt="Breakfast Club Web">
+                        <img src="images/bourbclubs.PNG" alt="Breakfast Club Web" loading="lazy">
                     </div>
                     <div class="project-info">
                         <h3>The Breakfast Club</h3>
-                        <p>Modern restaurant website with menu integration and location services.</p>
+                        <p>Full-stack restaurant website featuring menu integration and location services. Delivered on scope; client site was subsequently sunset due to operational funding constraints.</p>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="web">
+                <div class="project-card reveal" data-category="web">
                     <div class="project-image">
-                        <img src="images/NeuroSpark.PNG" alt="NeuroSpark">
+                        <img src="images/NeuroSpark.PNG" alt="NeuroSpark" loading="lazy">
                     </div>
                     <div class="project-info">
                         <h3>NeuroSpark</h3>
-                        <p>Productivity suite focusing on flow state and task management.</p>
+                        <p>AI-assisted productivity suite designed around flow state and intelligent task management.</p>
                         <a href="https://ajsamudio.github.io/playground/NeuroSparkProductivity.html" target="_blank"
                             class="project-link">View Project</a>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="web">
+                <div class="project-card reveal" data-category="web">
                     <div class="project-image">
-                        <img src="images/blackJack.PNG" alt="BlackJack">
+                        <img src="images/blackJack.PNG" alt="BlackJack" loading="lazy">
                     </div>
                     <div class="project-info">
                         <h3>BlackJack</h3>
-                        <p>Interactive web-based card game with game logic and animations.</p>
+                        <p>Browser-based Blackjack game demonstrating core game logic, state management, and interactive UI — built with vanilla JavaScript, no frameworks.</p>
+                        <a href="https://ajsamudio.github.io/playground/BlackJack.html" target="_blank" class="project-link">View Project</a>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="web">
+                <div class="project-card reveal" data-category="web">
                     <div class="project-image">
-                        <img src="images/diceRoll.PNG" alt="DiceRoll">
+                        <img src="images/diceRoll.PNG" alt="DiceRoll" loading="lazy">
                     </div>
                     <div class="project-info">
                         <h3>DiceRoll</h3>
-                        <p>Simple yet addictive dice rolling simulation.</p>
+                        <p>Lightweight dice-rolling web app focused on clean UI, smooth animation, and event-driven JavaScript.</p>
+                        <a href="https://ajsamudio.github.io/playground/diceRoll.html" target="_blank" class="project-link">View Project</a>
                     </div>
                 </div>
 
                 <!-- Design Projects -->
-                <div class="project-card" data-category="design">
+                <div class="project-card reveal" data-category="design">
                     <div class="project-image">
-                        <img src="images/pos1upd.png" alt="Community Design">
+                        <img src="images/pos1upd.png" alt="Community Design" loading="lazy">
                     </div>
                     <div class="project-info">
                         <h3>Community Initiative</h3>
@@ -133,9 +148,9 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-category="design">
+                <div class="project-card reveal" data-category="design">
                     <div class="project-image">
-                        <img src="images/Capture3.png" alt="Environment Modeling">
+                        <img src="images/Capture3.png" alt="Environment Modeling" loading="lazy">
                     </div>
                     <div class="project-info">
                         <h3>3D Environment</h3>
@@ -143,9 +158,9 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-category="design">
+                <div class="project-card reveal" data-category="design">
                     <div class="project-image">
-                        <img src="images/post2upd.png" alt="Community Design 2">
+                        <img src="images/post2upd.png" alt="Community Design 2" loading="lazy">
                     </div>
                     <div class="project-info">
                         <h3>Service Campaign</h3>
@@ -154,40 +169,41 @@
                 </div>
 
                 <!-- Video Projects -->
-                <div class="project-card" data-category="video">
+                <div class="project-card reveal" data-category="video">
                     <div class="project-media">
-                        <video controls poster="images/Fnite_thumbnail.png" style="width: 100%; border-radius: 10px;">
+                        <video controls preload="none" poster="images/Fvideo.png" style="width: 100%; border-radius: 10px;"
+                            class="js-video">
                             <source src="images/Fnite.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
                     <div class="project-info">
-                        <h3>Gaming Montage</h3>
-                        <p>High-energy editing syncing gameplay with music beats.</p>
+                        <h3>Fortnite Montage</h3>
+                        <p>High-energy gaming montage produced and edited for a client, showcasing precision cuts and motion-synced visual effects.</p>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="video">
+                <div class="project-card reveal" data-category="video">
                     <div class="project-media">
-                        <video controls poster="images/DodgerWin_thumbnail.png"
-                            style="width: 100%; border-radius: 10px;">
+                        <video controls preload="none" poster="images/Dvideo.png" style="width: 100%; border-radius: 10px;"
+                            class="js-video">
                             <source src="images/DodgerWin.MOV" type="video/quicktime">
                             Your browser does not support the video tag.
                         </video>
                     </div>
                     <div class="project-info">
-                        <h3>Dodgers World Series</h3>
-                        <p>Cinematic highlight reel celebrating the championship win.</p>
+                        <h3>Dodger Edit</h3>
+                        <p>Cinematic highlight reel celebrating the Dodgers' World Series victory, edited for high-impact storytelling and social media reach.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="contact" id="contact">
-            <h2 class="section-title slide-up">Let's Connect</h2>
+            <h2 class="section-title slide-up">Let's Build Something</h2>
 
             <div class="contact-container">
-                <div class="social-links">
+                <div class="social-links reveal">
                     <a href="https://www.linkedin.com/in/antonio-samudio/" target="_blank" class="social-link">
                         <i class="fab fa-linkedin"></i>
                         <span>LinkedIn</span>
@@ -197,19 +213,28 @@
                         <i class="fas fa-file-alt"></i>
                         <span>Resume</span>
                     </a>
+                    <a href="https://github.com/ajsamudio" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
                 </div>
 
-                <div class="contact-form-inline">
+                <div class="contact-form-inline reveal">
                     <h3>Send me a message</h3>
-                    <form id="emailForm" onsubmit="return sendEmail(event)">
+                    <form action="https://formsubmit.co/d18932fb7fe307edfac4bccd390a7b73" method="POST">
+                        <!-- Required by FormSubmit: Ensure this matches the field names in the form -->
+                        <input type="hidden" name="_subject" value="New Portfolio Message!">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://ajsamudio.github.io/WebPortfolio/">
+
                         <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            <input type="text" name="name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" placeholder="How can I help you?" required></textarea>
+                            <textarea name="message" placeholder="Your Message" required></textarea>
                         </div>
                         <button type="submit" class="submit-btn">Send Message</button>
                     </form>
@@ -217,12 +242,36 @@
             </div>
         </section>
 
-        <footer class="footer">
+        <footer class="footer reveal">
             <div class="footer-content">
-                <div class="footer-text">
-                    <p>&copy; 2026 AJ Samudio. All rights reserved.</p>
+                <div class="footer-col">
+                    <p class="footer-name">AJ Samudio</p>
+                    <p class="footer-tagline">Full-Stack Developer & Creative Technologist</p>
                 </div>
-                <!-- Optional: Add footer links back if desired, but kept simple for now as per design -->
+                <div class="footer-col footer-col--center">
+                    <p class="footer-col-label">Navigate</p>
+                    <nav class="footer-nav">
+                        <a href="#projects" class="footer-nav-link">Projects</a>
+                        <a href="#contact" class="footer-nav-link">Let's Build Something</a>
+                    </nav>
+                </div>
+                <div class="footer-col footer-col--right">
+                    <p class="footer-col-label">Connect</p>
+                    <div class="footer-icons">
+                        <a href="https://www.linkedin.com/in/antonio-samudio/" target="_blank" class="footer-icon" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/ajsamudio" target="_blank" class="footer-icon" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://drive.google.com/file/d/1lD0m3fH9jQPWc1DKjSWG-h-kliRb6iSR/view?usp=drive_link" target="_blank" class="footer-icon" aria-label="Resume">
+                            <i class="fas fa-file-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 AJ Samudio. All rights reserved.</p>
             </div>
         </footer>
     </div>
