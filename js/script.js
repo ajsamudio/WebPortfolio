@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Typewriter effect
     const typewriterElement = document.getElementById('typewriter');
-    const textToType = "Full-stack developer with 10+ years of experience building production-grade web apps and digital experiences. Based in Los Angeles — open to full-time and freelance, on-site or remote.";
+    const textToType = "Fullstack developer with a B.S. degree, building web apps with React, TypeScript, and JavaScript. Based in Orange County, CA — seeking junior roles in Software Engineering, AI Development, Web Development, or QA.";
     let index = 0;
 
     function typeWriter() {

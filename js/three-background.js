@@ -1,5 +1,6 @@
 // Three.js background script
-let scene, camera, renderer, particles;
+let scene, camera, renderer;
+let starField, nebulaField, accentField;
 let mouseX = 0, mouseY = 0;
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
@@ -10,63 +11,141 @@ function init() {
 
     scene = new THREE.Scene();
 
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.z = 500;
+    camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 2000);
+    camera.position.z = 600;
 
-    renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    // Cap pixel ratio at 2 to prevent 3x/4x rendering on high-DPI mobile
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    // Deep space navy-black
+    renderer.setClearColor(0x020610, 1);
 
-    const ambientLight = new THREE.AmbientLight(0x404040);
-    scene.add(ambientLight);
+    const isMobile = window.innerWidth < 768;
 
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-    directionalLight.position.set(1, 1, 1).normalize();
-    scene.add(directionalLight);
+    // --- Layer 1: Dense distant star field (small, white/pale blue) ---
+    const starCount = isMobile ? 1200 : 2800;
+    const starPositions = new Float32Array(starCount * 3);
+    const starColors = new Float32Array(starCount * 3);
+    const starSizes = new Float32Array(starCount);
 
-    renderer.setClearColor(0x0a0a0a);
+    const white = new THREE.Color('#ffffff');
+    const paleBlue = new THREE.Color('#c8d8ff');
+    const warmWhite = new THREE.Color('#fff4e0');
 
-    // Reduce particle count on mobile for performance
-    const particleCount = window.innerWidth < 768 ? 500 : 1000;
-    const positions = new Float32Array(particleCount * 3);
-    const colors = new Float32Array(particleCount * 3);
-    const particleGeometry = new THREE.BufferGeometry();
+    for (let i = 0; i < starCount; i++) {
+        const i3 = i * 3;
+        starPositions[i3]     = (Math.random() * 2 - 1) * 900;
+        starPositions[i3 + 1] = (Math.random() * 2 - 1) * 900;
+        starPositions[i3 + 2] = (Math.random() * 2 - 1) * 600;
 
-    const pMaterial = new THREE.PointsMaterial({
-        size: 2,
+        const roll = Math.random();
+        const c = roll < 0.6 ? white : roll < 0.85 ? paleBlue : warmWhite;
+        starColors[i3]     = c.r;
+        starColors[i3 + 1] = c.g;
+        starColors[i3 + 2] = c.b;
+
+        // Vary star brightness/size: most tiny, a few brighter
+        starSizes[i] = Math.random() < 0.06 ? 2.5 : Math.random() < 0.2 ? 1.5 : 0.8;
+    }
+
+    const starGeo = new THREE.BufferGeometry();
+    starGeo.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+    starGeo.setAttribute('color', new THREE.BufferAttribute(starColors, 3));
+    starGeo.setAttribute('size', new THREE.BufferAttribute(starSizes, 1));
+
+    const starMat = new THREE.PointsMaterial({
+        size: 1.2,
         vertexColors: true,
         blending: THREE.AdditiveBlending,
         transparent: true,
-        sizeAttenuation: true
+        opacity: 0.9,
+        sizeAttenuation: true,
     });
 
-    const color1 = new THREE.Color('#00f2ea');
-    const color2 = new THREE.Color('#ff0050');
+    starField = new THREE.Points(starGeo, starMat);
+    scene.add(starField);
 
-    for (let i = 0; i < particleCount; i++) {
+    // --- Layer 2: Nebula cloud (large, soft, blue/purple) ---
+    const nebulaCount = isMobile ? 60 : 140;
+    const nebulaPositions = new Float32Array(nebulaCount * 3);
+    const nebulaColors = new Float32Array(nebulaCount * 3);
+
+    const nebBlue   = new THREE.Color('#1a3a8a');
+    const nebPurple = new THREE.Color('#4a1a7a');
+    const nebTeal   = new THREE.Color('#0a4a6a');
+
+    for (let i = 0; i < nebulaCount; i++) {
         const i3 = i * 3;
-        positions[i3]     = (Math.random() * 2 - 1) * 500;
-        positions[i3 + 1] = (Math.random() * 2 - 1) * 500;
-        positions[i3 + 2] = (Math.random() * 2 - 1) * 500;
+        // Cluster nebula in two zones for realism
+        const zone = Math.random() > 0.5 ? -1 : 1;
+        nebulaPositions[i3]     = zone * (80 + Math.random() * 300);
+        nebulaPositions[i3 + 1] = (Math.random() * 2 - 1) * 200;
+        nebulaPositions[i3 + 2] = (Math.random() * 2 - 1) * 200;
 
-        const mixedColor = Math.random() > 0.5 ? color1 : color2;
-        colors[i3]     = mixedColor.r;
-        colors[i3 + 1] = mixedColor.g;
-        colors[i3 + 2] = mixedColor.b;
+        const roll = Math.random();
+        const c = roll < 0.45 ? nebBlue : roll < 0.75 ? nebPurple : nebTeal;
+        nebulaColors[i3]     = c.r;
+        nebulaColors[i3 + 1] = c.g;
+        nebulaColors[i3 + 2] = c.b;
     }
 
-    particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    particleGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-    particles = new THREE.Points(particleGeometry, pMaterial);
-    scene.add(particles);
+    const nebulaGeo = new THREE.BufferGeometry();
+    nebulaGeo.setAttribute('position', new THREE.BufferAttribute(nebulaPositions, 3));
+    nebulaGeo.setAttribute('color', new THREE.BufferAttribute(nebulaColors, 3));
+
+    const nebulaMat = new THREE.PointsMaterial({
+        size: 80,
+        vertexColors: true,
+        blending: THREE.AdditiveBlending,
+        transparent: true,
+        opacity: 0.06,
+        sizeAttenuation: true,
+    });
+
+    nebulaField = new THREE.Points(nebulaGeo, nebulaMat);
+    scene.add(nebulaField);
+
+    // --- Layer 3: Sparse accent stars (teal/pink, very few) ---
+    const accentCount = isMobile ? 30 : 70;
+    const accentPositions = new Float32Array(accentCount * 3);
+    const accentColors = new Float32Array(accentCount * 3);
+
+    const teal = new THREE.Color('#00f2ea');
+    const pink = new THREE.Color('#ff0050');
+
+    for (let i = 0; i < accentCount; i++) {
+        const i3 = i * 3;
+        accentPositions[i3]     = (Math.random() * 2 - 1) * 800;
+        accentPositions[i3 + 1] = (Math.random() * 2 - 1) * 800;
+        accentPositions[i3 + 2] = (Math.random() * 2 - 1) * 400;
+
+        const c = Math.random() > 0.5 ? teal : pink;
+        accentColors[i3]     = c.r;
+        accentColors[i3 + 1] = c.g;
+        accentColors[i3 + 2] = c.b;
+    }
+
+    const accentGeo = new THREE.BufferGeometry();
+    accentGeo.setAttribute('position', new THREE.BufferAttribute(accentPositions, 3));
+    accentGeo.setAttribute('color', new THREE.BufferAttribute(accentColors, 3));
+
+    const accentMat = new THREE.PointsMaterial({
+        size: 2.5,
+        vertexColors: true,
+        blending: THREE.AdditiveBlending,
+        transparent: true,
+        opacity: 0.7,
+        sizeAttenuation: true,
+    });
+
+    accentField = new THREE.Points(accentGeo, accentMat);
+    scene.add(accentField);
 
     document.addEventListener('mousemove', onDocumentMouseMove, false);
     document.addEventListener('touchstart', onDocumentTouchStart, false);
     document.addEventListener('touchmove', onDocumentTouchMove, false);
     window.addEventListener('resize', onWindowResize, false);
 
-    // Pause rAF when tab is hidden to save battery/GPU
     document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
             cancelAnimationFrame(animFrameId);
@@ -109,11 +188,19 @@ function onWindowResize() {
 function animate() {
     animFrameId = requestAnimationFrame(animate);
 
-    particles.rotation.x += 0.0005;
-    particles.rotation.y += 0.001;
+    // Very slow, elegant drift
+    starField.rotation.y += 0.00008;
+    starField.rotation.x += 0.00003;
 
-    camera.position.x += (mouseX * 0.05 - camera.position.x) * 0.05;
-    camera.position.y += (-mouseY * 0.05 - camera.position.y) * 0.05;
+    nebulaField.rotation.y += 0.00005;
+    nebulaField.rotation.z += 0.00002;
+
+    accentField.rotation.y -= 0.00006;
+    accentField.rotation.x += 0.00004;
+
+    // Subtle parallax on mouse move
+    camera.position.x += (mouseX * 0.02 - camera.position.x) * 0.03;
+    camera.position.y += (-mouseY * 0.02 - camera.position.y) * 0.03;
     camera.lookAt(scene.position);
 
     renderer.render(scene, camera);
@@ -124,7 +211,6 @@ function initThreeJS() {
         console.error('THREE.js not loaded.');
         return;
     }
-    // Skip particle animation entirely for users with reduced-motion preference
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         return;
     }

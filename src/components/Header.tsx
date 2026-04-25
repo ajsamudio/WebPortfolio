@@ -11,7 +11,7 @@ export default function Header() {
   // Typewriter effect
   useEffect(() => {
     const text =
-      "Full-stack developer with 10+ years of experience building production-grade web apps and digital experiences. Based in Los Angeles — open to full-time and freelance, on-site or remote.";
+      "Fullstack developer with a B.S. degree, building web apps with React, TypeScript, and JavaScript. Based in Orange County, CA — seeking junior roles in Software Engineering, AI Development, Web Development, or QA.";
     const el = typewriterRef.current;
     if (!el) return;
 
