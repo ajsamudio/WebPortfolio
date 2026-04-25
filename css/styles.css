@@ -659,6 +659,56 @@ h3 {
     }
 }
 
+/* Visually hidden — accessible to screen readers, invisible to sighted users */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Skip link — visible on keyboard focus only */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 9999;
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: #000;
+    font-weight: 600;
+    border-radius: 0 0 6px 6px;
+    text-decoration: none;
+    transition: top 0.2s;
+}
+.skip-link:focus {
+    top: 0;
+}
+
+/* Respect reduced-motion preference — disable all transitions and animations */
+@media (prefers-reduced-motion: reduce) {
+    .fade-in,
+    .slide-up,
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    .visible {
+        transition: none;
+    }
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .header {

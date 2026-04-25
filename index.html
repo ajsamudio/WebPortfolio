@@ -4,23 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AJ Samudio - Web Developer</title>
+    <title>AJ Samudio - Full-Stack Developer & Creative Technologist</title>
+
+    <!-- SEO -->
+    <meta name="description" content="AJ Samudio — Full-Stack Developer & Creative Technologist based in Los Angeles. Building web apps, e-commerce platforms, and digital experiences.">
+    <meta property="og:title" content="AJ Samudio - Full-Stack Developer & Creative Technologist">
+    <meta property="og:description" content="Full-Stack Developer & Creative Technologist building web apps, e-commerce platforms, and digital experiences.">
+    <meta property="og:image" content="https://ajsamudio.github.io/WebPortfolio/images/pfp.png">
+    <meta property="og:url" content="https://ajsamudio.github.io/WebPortfolio/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AJ Samudio - Full-Stack Developer">
+    <meta name="twitter:description" content="Full-Stack Developer & Creative Technologist building web apps, e-commerce platforms, and digital experiences.">
+    <meta name="twitter:image" content="https://ajsamudio.github.io/WebPortfolio/images/pfp.png">
+    <link rel="canonical" href="https://ajsamudio.github.io/WebPortfolio/">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "AJ Samudio",
+      "jobTitle": "Full-Stack Developer & Creative Technologist",
+      "url": "https://ajsamudio.github.io/WebPortfolio/",
+      "sameAs": [
+        "https://www.linkedin.com/in/antonio-samudio/",
+        "https://github.com/ajsamudio"
+      ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qp+7knA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <a href="#projects" class="skip-link">Skip to content</a>
     <canvas id="three-background"></canvas>
     <div class="container">
 
         <header class="header">
             <div class="profile-image-container fade-in" data-delay="0s">
-                <img src="images/pfp.png" alt="AJ Samudio" class="profile-image" fetchpriority="high">
+                <picture>
+                    <source srcset="images/pfp.webp" type="image/webp">
+                    <img src="images/pfp.png" alt="AJ Samudio" class="profile-image" fetchpriority="high">
+                </picture>
             </div>
             <h1 class="name fade-in" data-delay="0.2s">AJ Samudio</h1>
             <p class="title slide-up" data-delay="0.4s">Full-Stack Developer & Creative Technologist</p>
@@ -52,95 +82,182 @@
             <h2 class="section-title slide-up">Projects</h2>
 
             <div class="filter-buttons fade-in">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="web">Web Development</button>
-                <button class="filter-btn" data-filter="design">Graphic Design</button>
-                <button class="filter-btn" data-filter="video">Video Editing</button>
+                <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+                <button class="filter-btn" data-filter="web" aria-pressed="false">Web Development</button>
+                <button class="filter-btn" data-filter="design" aria-pressed="false">Graphic Design</button>
+                <button class="filter-btn" data-filter="video" aria-pressed="false">Video Editing</button>
             </div>
 
             <div class="project-grid">
                 <!-- Web Projects -->
                 <div class="project-card reveal" data-category="web">
                     <div class="project-image">
-                        <img src="images/Primovera.PNG" alt="Primovera Web" loading="lazy">
+                        <picture>
+                            <source srcset="images/Primovera.webp" type="image/webp">
+                            <img src="images/Primovera.PNG" alt="Primovera Web" loading="lazy">
+                        </picture>
                     </div>
                     <div class="project-info">
                         <h3>Primovera</h3>
                         <p>End-to-end full-stack development for a Philippine construction and property management firm. Now live, with the brand featured on physical signage in the Philippines.</p>
-                        <a href="https://primovera.net/" target="_blank" class="project-link">View Project</a>
+                        <a href="https://primovera.net/" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
                     </div>
                 </div>
 
                 <div class="project-card reveal" data-category="web">
                     <div class="project-image">
-                        <img src="images/LashDesk.PNG" alt="Lash Web" loading="lazy">
+                        <picture>
+                            <source srcset="images/LashDesk.webp" type="image/webp">
+                            <img src="images/LashDesk.PNG" alt="Lash Web" loading="lazy">
+                        </picture>
                     </div>
                     <div class="project-info">
                         <h3>Dragonflyy Studio</h3>
                         <p>Full-stack build for a boutique lash studio in Orange County, CA. The platform actively drives client bookings and serves as the studio's primary digital presence.</p>
-                        <a href="https://dragonflyybar.com/" target="_blank" class="project-link">View Project</a>
+                        <a href="https://dragonflyybar.com/" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
                     </div>
                 </div>
 
                 <div class="project-card reveal" data-category="web">
                     <div class="project-image">
-                        <img src="images/SintaByMarie.png" alt="SintaByMarie" loading="lazy">
+                        <picture>
+                            <source srcset="images/SintaByMarie.webp" type="image/webp">
+                            <img src="images/SintaByMarie.png" alt="SintaByMarie" loading="lazy">
+                        </picture>
                     </div>
                     <div class="project-info">
                         <h3>SintaByMarie</h3>
                         <p>Full-stack e-commerce and showcase platform for a handcrafted jewelry brand, built with a focus on elegant UX and conversion-driven design.</p>
-                        <a href="http://sintabymariejewelry.com/" target="_blank" class="project-link">View Project</a>
+                        <a href="http://sintabymariejewelry.com/" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
                     </div>
                 </div>
 
                 <div class="project-card reveal" data-category="web">
                     <div class="project-image">
-                        <img src="images/bourbclubs.PNG" alt="Breakfast Club Web" loading="lazy">
+                        <img src="images/LGathletics.png" alt="LG Athletic Performance" loading="lazy">
                     </div>
                     <div class="project-info">
-                        <h3>The Breakfast Club</h3>
-                        <p>Full-stack restaurant website featuring menu integration and location services. Delivered on scope; client site was subsequently sunset due to operational funding constraints.</p>
+                        <h3>LG Athletic Performance</h3>
+                        <p>Client-facing website for a youth athletic training facility in Huntington Beach. Built to drive appointment bookings with clear service breakdowns, coach credibility, and a seamless contact flow.</p>
+                        <a href="https://lgathleticperformance.com/" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
                     </div>
                 </div>
 
                 <div class="project-card reveal" data-category="web">
                     <div class="project-image">
-                        <img src="images/NeuroSpark.PNG" alt="NeuroSpark" loading="lazy">
+                        <img src="images/MysteryEntertainment.png" alt="Mystery Entertainment" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>Mystery Entertainment</h3>
+                        <p>Music branding and web presence for a Los Angeles entertainment label. Built to capture the label's identity with a modern, immersive feel.</p>
+                        <a href="https://mystery-co.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card reveal" data-category="web">
+                    <div class="project-image">
+                        <img src="images/marias-kusina.png" alt="Maria's Kusina" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>Maria's Kusina</h3>
+                        <p>Story-driven restaurant website for a beloved Filipino panciteria established in 1995 in Buena Park. Built to honour the brand's heritage while driving foot traffic and online menu engagement.</p>
+                        <a href="https://ajsamudio.github.io/MariasKusina/" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card reveal" data-category="web">
+                    <div class="project-image">
+                        <img src="images/WhippleTacos.png" alt="Whipple Taqueria" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>Whipple Taqueria</h3>
+                        <p>Bold, appetite-driven website for a high-rated taqueria in Union City. Built to showcase the menu, drive Yelp traffic, and make it effortless for locals to find and visit.</p>
+                        <a href="https://ajsamudio.github.io/WhippleTaqueria/" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card reveal" data-category="web">
+                    <div class="project-image">
+                        <img src="images/Wallwriters.png" alt="Wall Writers Coffee" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>Wall Writers Coffee</h3>
+                        <p>Polished digital presence for an upscale coffee shop in Irvine known for Asian-inspired specialty drinks. Built to drive online orders and reflect the brand's premium community-first identity.</p>
+                        <a href="https://ajsamudio.github.io/WallWriters/" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card reveal" data-category="web">
+                    <div class="project-image">
+                        <img src="images/FinanceTracker.png" alt="Self Finance" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>Self Finance</h3>
+                        <p>Private, secure personal finance web app for tracking spending and managing budgets. Built as a full-stack SaaS with Google authentication and real-time expense analytics.</p>
+                        <a href="https://self-finance-beryl.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card reveal" data-category="web">
+                    <div class="project-image">
+                        <img src="images/3dVinyl.png" alt="Vinyl 3D" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>Vinyl 3D</h3>
+                        <p>Visually striking, scroll-driven 3D experience built around vinyl and music culture. Designed to push the boundaries of what a web presence can feel like.</p>
+                        <a href="https://ajsamudio.github.io/3dVinyl/" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card reveal" data-category="web">
+                    <div class="project-image">
+                        <picture>
+                            <source srcset="images/NeuroSpark.webp" type="image/webp">
+                            <img src="images/NeuroSpark.PNG" alt="NeuroSpark" loading="lazy">
+                        </picture>
                     </div>
                     <div class="project-info">
                         <h3>NeuroSpark</h3>
                         <p>AI-assisted productivity suite designed around flow state and intelligent task management.</p>
-                        <a href="https://ajsamudio.github.io/playground/NeuroSparkProductivity.html" target="_blank"
-                            class="project-link">View Project</a>
+                        <a href="https://ajsamudio.github.io/playground/NeuroSparkProductivity.html" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
                     </div>
                 </div>
 
                 <div class="project-card reveal" data-category="web">
                     <div class="project-image">
-                        <img src="images/blackJack.PNG" alt="BlackJack" loading="lazy">
+                        <picture>
+                            <source srcset="images/blackJack.webp" type="image/webp">
+                            <img src="images/blackJack.PNG" alt="BlackJack" loading="lazy">
+                        </picture>
                     </div>
                     <div class="project-info">
                         <h3>BlackJack</h3>
                         <p>Browser-based Blackjack game demonstrating core game logic, state management, and interactive UI — built with vanilla JavaScript, no frameworks.</p>
-                        <a href="https://ajsamudio.github.io/playground/BlackJack.html" target="_blank" class="project-link">View Project</a>
+                        <a href="https://ajsamudio.github.io/playground/BlackJack.html" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
                     </div>
                 </div>
 
                 <div class="project-card reveal" data-category="web">
                     <div class="project-image">
-                        <img src="images/diceRoll.PNG" alt="DiceRoll" loading="lazy">
+                        <picture>
+                            <source srcset="images/diceRoll.webp" type="image/webp">
+                            <img src="images/diceRoll.PNG" alt="DiceRoll" loading="lazy">
+                        </picture>
                     </div>
                     <div class="project-info">
                         <h3>DiceRoll</h3>
                         <p>Lightweight dice-rolling web app focused on clean UI, smooth animation, and event-driven JavaScript.</p>
-                        <a href="https://ajsamudio.github.io/playground/diceRoll.html" target="_blank" class="project-link">View Project</a>
+                        <a href="https://ajsamudio.github.io/playground/diceRoll.html" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
                     </div>
                 </div>
 
                 <!-- Design Projects -->
                 <div class="project-card reveal" data-category="design">
                     <div class="project-image">
-                        <img src="images/pos1upd.png" alt="Community Design" loading="lazy">
+                        <picture>
+                            <source srcset="images/pos1upd.webp" type="image/webp">
+                            <img src="images/pos1upd.png" alt="Community Design" loading="lazy">
+                        </picture>
                     </div>
                     <div class="project-info">
                         <h3>Community Initiative</h3>
@@ -150,7 +267,10 @@
 
                 <div class="project-card reveal" data-category="design">
                     <div class="project-image">
-                        <img src="images/Capture3.png" alt="Environment Modeling" loading="lazy">
+                        <picture>
+                            <source srcset="images/Capture3.webp" type="image/webp">
+                            <img src="images/Capture3.png" alt="Environment Modeling" loading="lazy">
+                        </picture>
                     </div>
                     <div class="project-info">
                         <h3>3D Environment</h3>
@@ -160,7 +280,10 @@
 
                 <div class="project-card reveal" data-category="design">
                     <div class="project-image">
-                        <img src="images/post2upd.png" alt="Community Design 2" loading="lazy">
+                        <picture>
+                            <source srcset="images/post2upd.webp" type="image/webp">
+                            <img src="images/post2upd.png" alt="Community Design 2" loading="lazy">
+                        </picture>
                     </div>
                     <div class="project-info">
                         <h3>Service Campaign</h3>
@@ -171,8 +294,7 @@
                 <!-- Video Projects -->
                 <div class="project-card reveal" data-category="video">
                     <div class="project-media">
-                        <video controls preload="none" poster="images/Fvideo.png" style="width: 100%; border-radius: 10px;"
-                            class="js-video">
+                        <video controls preload="none" poster="images/Fvideo.webp" style="width: 100%; border-radius: 10px;" class="js-video">
                             <source src="images/Fnite.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -185,9 +307,8 @@
 
                 <div class="project-card reveal" data-category="video">
                     <div class="project-media">
-                        <video controls preload="none" poster="images/Dvideo.png" style="width: 100%; border-radius: 10px;"
-                            class="js-video">
-                            <source src="images/DodgerWin.MOV" type="video/quicktime">
+                        <video controls preload="none" poster="images/Dvideo.webp" style="width: 100%; border-radius: 10px;" class="js-video">
+                            <source src="images/DodgerWin.MOV" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -204,16 +325,16 @@
 
             <div class="contact-container">
                 <div class="social-links reveal">
-                    <a href="https://www.linkedin.com/in/antonio-samudio/" target="_blank" class="social-link">
+                    <a href="https://www.linkedin.com/in/antonio-samudio/" target="_blank" rel="noopener noreferrer" class="social-link">
                         <i class="fab fa-linkedin"></i>
                         <span>LinkedIn</span>
                     </a>
                     <a href="https://drive.google.com/file/d/1lD0m3fH9jQPWc1DKjSWG-h-kliRb6iSR/view?usp=drive_link"
-                        target="_blank" class="social-link">
+                        target="_blank" rel="noopener noreferrer" class="social-link">
                         <i class="fas fa-file-alt"></i>
                         <span>Resume</span>
                     </a>
-                    <a href="https://github.com/ajsamudio" target="_blank" class="social-link">
+                    <a href="https://github.com/ajsamudio" target="_blank" rel="noopener noreferrer" class="social-link">
                         <i class="fab fa-github"></i>
                         <span>GitHub</span>
                     </a>
@@ -222,19 +343,23 @@
                 <div class="contact-form-inline reveal">
                     <h3>Send me a message</h3>
                     <form action="https://formsubmit.co/d18932fb7fe307edfac4bccd390a7b73" method="POST">
-                        <!-- Required by FormSubmit: Ensure this matches the field names in the form -->
                         <input type="hidden" name="_subject" value="New Portfolio Message!">
-                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_captcha" value="true">
                         <input type="hidden" name="_next" value="https://ajsamudio.github.io/WebPortfolio/">
+                        <!-- Honeypot — bots fill this; humans don't see it -->
+                        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
                         <div class="form-group">
-                            <input type="text" name="name" placeholder="Your Name" required>
+                            <label for="contact-name" class="visually-hidden">Your Name</label>
+                            <input type="text" id="contact-name" name="name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" placeholder="Your Email" required>
+                            <label for="contact-email" class="visually-hidden">Your Email</label>
+                            <input type="email" id="contact-email" name="email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <textarea name="message" placeholder="Your Message" required></textarea>
+                            <label for="contact-message" class="visually-hidden">Your Message</label>
+                            <textarea id="contact-message" name="message" placeholder="Your Message" required></textarea>
                         </div>
                         <button type="submit" class="submit-btn">Send Message</button>
                     </form>
@@ -250,7 +375,7 @@
                 </div>
                 <div class="footer-col footer-col--center">
                     <p class="footer-col-label">Navigate</p>
-                    <nav class="footer-nav">
+                    <nav class="footer-nav" aria-label="Footer navigation">
                         <a href="#projects" class="footer-nav-link">Projects</a>
                         <a href="#contact" class="footer-nav-link">Let's Build Something</a>
                     </nav>
@@ -258,13 +383,13 @@
                 <div class="footer-col footer-col--right">
                     <p class="footer-col-label">Connect</p>
                     <div class="footer-icons">
-                        <a href="https://www.linkedin.com/in/antonio-samudio/" target="_blank" class="footer-icon" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/in/antonio-samudio/" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="LinkedIn">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="https://github.com/ajsamudio" target="_blank" class="footer-icon" aria-label="GitHub">
+                        <a href="https://github.com/ajsamudio" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="GitHub">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://drive.google.com/file/d/1lD0m3fH9jQPWc1DKjSWG-h-kliRb6iSR/view?usp=drive_link" target="_blank" class="footer-icon" aria-label="Resume">
+                        <a href="https://drive.google.com/file/d/1lD0m3fH9jQPWc1DKjSWG-h-kliRb6iSR/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="Resume">
                             <i class="fas fa-file-alt"></i>
                         </a>
                     </div>
@@ -275,7 +400,7 @@
             </div>
         </footer>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.150.1/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.150.1/three.min.js" integrity="sha512-li4AqQTuV2YBbstQxFBcRz6liZxUKVVBwMAwu2hBYlWcegHhOiM6Z7X5wMIXBBnEdlD4nL4IZZ8IQz7RHfxA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/script.js"></script>
     <script src="js/three-background.js"></script>
 </body>
