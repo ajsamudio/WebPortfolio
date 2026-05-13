@@ -40,7 +40,7 @@ export default function Contact() {
 
           <form
             className="contact-form"
-            action="https://formsubmit.co/d18932fb7fe307edfac4bccd390a7b73"
+            action="https://formsubmit.co/antsamudio99@gmail.com"
             method="POST"
             aria-label="Contact form"
           >
