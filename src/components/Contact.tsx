@@ -1,8 +1,57 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
 export default function Contact() {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (wrapperRef.current) observer.observe(wrapperRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("sending");
+
+    const form = e.currentTarget;
+    const data = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+    };
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      setStatus("sent");
+      form.reset();
+    } else {
+      setStatus("error");
+    }
+  }
+
   return (
     <section className="contact-section" id="contact" aria-label="Contact AJ Samudio">
       <div className="container">
-        <div className="contact-wrapper reveal">
+        <div className="contact-wrapper reveal" ref={wrapperRef}>
           <h2 className="section-title">Let&apos;s Build Something</h2>
 
           <div className="social-links" aria-label="Social links">
@@ -40,15 +89,9 @@ export default function Contact() {
 
           <form
             className="contact-form"
-            action="https://formsubmit.co/antsamudio99@gmail.com"
-            method="POST"
+            onSubmit={handleSubmit}
             aria-label="Contact form"
           >
-            {/* Honeypot */}
-            <input type="text" name="_honey" style={{ display: "none" }} />
-            <input type="hidden" name="_captcha" value="true" />
-            <input type="hidden" name="_next" value="https://ajsamudio.github.io/WebPortfolio/" />
-
             <div className="form-group">
               <label htmlFor="name" className="visually-hidden">Your name</label>
               <input
@@ -87,9 +130,15 @@ export default function Contact() {
               />
             </div>
 
-            <button type="submit" className="btn-primary">
-              Send Message
+            <button type="submit" className="btn-primary" disabled={status === "sending"}>
+              {status === "sending" ? "Sending…" : status === "sent" ? "Message Sent!" : "Send Message"}
             </button>
+
+            {status === "error" && (
+              <p style={{ color: "var(--accent-color)", marginTop: "1rem", textAlign: "center" }}>
+                Something went wrong. Please try again.
+              </p>
+            )}
           </form>
         </div>
       </div>
