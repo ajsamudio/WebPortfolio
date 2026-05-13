@@ -51,7 +51,7 @@ export default function Contact() {
   return (
     <section className="contact-section" id="contact" aria-label="Contact AJ Samudio">
       <div className="container">
-        <div className="contact-wrapper reveal" ref={wrapperRef}>
+        <div className="contact-wrapper" ref={wrapperRef}>
           <h2 className="section-title">Let&apos;s Build Something</h2>
 
           <div className="social-links" aria-label="Social links">
